@@ -1,0 +1,21 @@
+[tool.poetry]
+name = "django-api-blog"
+version = "0.1.0"
+description = "rest api for blog"
+authors = ["Roman Popov <i@romanpopoff.ru>"]
+readme = "README.md"
+packages = [{include = "django_api_blog"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+django = "^4.2"
+django-rest-swagger = "^2.2.0"
+flake8 = "^6.0.0"
+django-debug-toolbar = "^3.8.1"
+python-dotenv = "^1.0.0"
+drf-yasg = "^1.21.5"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

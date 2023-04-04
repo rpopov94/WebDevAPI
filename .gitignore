@@ -1,0 +1,18 @@
+Virtual Environment
+.env
+.venv
+venv/
+ENV/
+
+Development
+pycache/
+*.py[cod]
+*.sqlite3
+*.pyc
+
+Local Settings
+config/settings/local.py
+
+IDEs
+.vscode/
+.idea/
