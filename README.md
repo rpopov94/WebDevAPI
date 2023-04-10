@@ -3,70 +3,24 @@
 This is a basic template for a Django project using the Django Rest Framework (DRF), Djoser, and Poetry as a dependency manager.
 
 Requirements
-* Python 3.7 or higher
+* Python 3.9 or higher
 * Poetry
 
 ## Installation
 
 Clone the repository
 
-`git clone https://github.com/your-username/project-name.git`
+`git clone https://github.com/rpopov94/WebDevAPI.git`
 
 Navigate into the project directory
 
-`cd project-name`
-
-Create a new virtual environment
-
-`python3 -m venv env`
-
-Activate the virtual environment
-
-On Linux and macOS:
-
-`source env/bin/activate`
-
-On Windows:
-
-`env\Scripts\activate`
+`cd WebDevAPI`
 
 Install dependencies using Poetry
 
 `poetry install`
 
-Create a new Django project
-
-`django-admin startproject config .`
-Create a new Django app
-
-`python manage.py startapp app_name`
-
-Configure the Django project to use DRF and Djoser
-
-Add the following to the `INSTALLED_APPS` section of config/settings.py:
-
-```
-INSTALLED_APPS = [
-    # ...
-    'rest_framework',
-    'djoser',
-    # ...
-]
-```
-
-Add the following to the urls.py file of the Django project:
-
-```
-from django.urls import include, path
-
-urlpatterns = [
-    # ...
-    path('api-auth/', include('rest_framework.urls')),
-    path('auth/', include('djoser.urls')),
-    path('auth/', include('djoser.urls.jwt')),
-    # ...
-]
-```
+`poetry shell`
 
 Run migrations
 

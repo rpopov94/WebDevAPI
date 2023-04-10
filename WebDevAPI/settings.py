@@ -24,8 +24,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
+    'rest_framework.authtoken',
+    'djoser',
     'debug_toolbar',
-    'drf_yasg'
+    'drf_yasg',
+    'core.apps.CoreConfig'
 ]
 
 MIDDLEWARE = [
@@ -39,7 +42,7 @@ MIDDLEWARE = [
     'debug_toolbar.middleware.DebugToolbarMiddleware'
 ]
 
-ROOT_URLCONF = 'DJANGO_API_BLOG.urls'
+ROOT_URLCONF = 'WebDevAPI.urls'
 
 TEMPLATES = [
     {
@@ -58,7 +61,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'DJANGO_API_BLOG.wsgi.application'
+WSGI_APPLICATION = 'WebDevAPI.wsgi.application'
 
 
 # Database
@@ -108,9 +111,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'mediafiles')
+MEDIA_ROOT = BASE_DIR / 'mediafiles'
 
-STATIC_ROOT = BASE_DIR / "staticfiles"
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 MEDIA_URL = '/media/'
 
@@ -133,15 +136,13 @@ REST_FRAMEWORK = {
     ]
 }
 
+AUTH_USER_MODEL = 'core.CustomUser'
+
 if DEBUG:
     REST_FRAMEWORK['DEFAULT_RENDERER_CLASSES'] += \
         ['rest_framework.renderers.BrowsableAPIRenderer']
 
 CORS_ORIGIN_WHITELIST = ('http://127.0.0.1:3000', 'http://localhost:3000')
-
-INTERNAL_IPS = [
-    '127.0.0.1',
-]
 
 CSRF_TRUSTED_ORIGINS = ['http://localhost:1337', 'http://127.0.0.1:1337']
 
