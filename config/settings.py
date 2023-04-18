@@ -28,6 +28,8 @@ INSTALLED_APPS = [
     'djoser',
     'debug_toolbar',
     'drf_yasg',
+    'ckeditor',
+    'ckeditor_uploader',
     'core.apps.CoreConfig'
 ]
 
@@ -61,7 +63,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'WebDevAPI.wsgi.application'
+WSGI_APPLICATION = 'config.wsgi.application'
 
 
 # Database
@@ -117,6 +119,8 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 MEDIA_URL = '/media/'
 
+CKEDITOR_UPLOAD_PATH = os.path.join(MEDIA_ROOT, 'uploads/')
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
@@ -141,6 +145,31 @@ AUTH_USER_MODEL = 'core.CustomUser'
 if DEBUG:
     REST_FRAMEWORK['DEFAULT_RENDERER_CLASSES'] += \
         ['rest_framework.renderers.BrowsableAPIRenderer']
+
+CKEDITOR_CONFIGS = {
+    'default': {
+        'toolbar': 'full',
+        'height': 300,
+        'width': 900,
+        'filebrowserWindowWidth': 900,
+        'filebrowserWindowHeight': 800,
+        'filebrowserBrowseUrl': '/ckeditor/browse/',
+        'filebrowserUploadUrl': '/ckeditor/upload/',
+        'extraPlugins': ','.join(['codesnippet']),
+        'codeSnippet_theme': 'monokai_sublime',
+        'codeSnippet_languages': {
+            'html': 'HTML',
+            'css': 'CSS',
+            'javascript': 'JavaScript',
+            'python': 'Python',
+            'django': 'Django Template',
+            'markdown': 'Markdown',
+        },
+        'codeSnippet_theme': 'monokai_sublime',
+        'codeSnippet_languages': 'html:HTML,css:CSS,javascript:JavaScript,python:Python,django:Django Template,markdown:Markdown',
+    }
+}
+
 
 CORS_ORIGIN_WHITELIST = ('http://127.0.0.1:3000', 'http://localhost:3000')
 

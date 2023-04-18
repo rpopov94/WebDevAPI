@@ -1,20 +1,22 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
+from django.utils import timezone
 from django.utils.translation import gettext_lazy as _
 
 from core import managers
 
+from ckeditor_uploader.fields import RichTextUploadingField
+
+from typing import List
+from django.core.files import File
+from datetime import datetime
+
 
 class CustomUser(AbstractUser):
-    """
-    A User model that uses `email` as it's default identifier instead of
-    username.
-    """
-
-    username = None
-    email = models.EmailField(_('email address'), unique=True)
-    bio = models.TextField()
-    gender = models.CharField(
+    username: str | None = None
+    email: str = models.EmailField(_('email address'), unique=True)
+    bio: str = models.TextField()
+    gender: str = models.CharField(
         max_length=140,
         null=True,
         choices=(
@@ -23,12 +25,21 @@ class CustomUser(AbstractUser):
             ('Other', 'Other')
         )
     )
-    birth_date = models.DateField(null=True, blank=True)
-    pro = models.BooleanField(default=False)
-    USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = []
+    birth_date: datetime = models.DateField(null=True, blank=True)
+    USERNAME_FIELD: str = 'email'
+    REQUIRED_FIELDS: List = []
 
-    objects = managers.CustomUserManager()
+    objects: object = managers.CustomUserManager()
 
-    def __str__(self):
+    def __str__(self) -> str:
         return self.email
+
+
+class Post(models.Model):
+    title: str = models.CharField(max_length=200)
+    content: str = RichTextUploadingField(config_name='default')
+    image: File = models.ImageField(upload_to='images/')
+    date_posted: datetime = models.DateTimeField(default=timezone.now)
+
+    def __str__(self) -> str:
+        return self.title

@@ -16,3 +16,5 @@ config/settings/local.py
 IDEs
 .vscode/
 .idea/
+
+.mypy_cache

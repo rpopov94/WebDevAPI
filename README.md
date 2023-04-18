@@ -36,6 +36,3 @@ Run the development server
 
 You can now access the DRF API at http://127.0.0.1:8000/api/ and the Djoser authentication endpoints at http://127.0.0.1:8000/auth/.
 
-Usage
-This template provides a basic setup for a Django + DRF + Djoser project. You can customize it as per your project requirements.
-
