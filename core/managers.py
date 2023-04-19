@@ -4,14 +4,12 @@ from django.contrib.auth.base_user import BaseUserManager
 from django.utils.translation import gettext_lazy as _
 from validate_email import validate_email
 
-from core.models import CustomUser
-
 
 class CustomUserManager(BaseUserManager):
     '''
     Custom class for create superuser
     '''
-    def create_user(self, email: str, password: str, **extra_fields: Union[str, int, bool]) -> CustomUser:
+    def create_user(self, email: str, password: str, **extra_fields: Union[str, int, bool]) -> object:
         """
         Create and save a User with the given email and password.
         """
@@ -25,7 +23,7 @@ class CustomUserManager(BaseUserManager):
         user.save()
         return user
 
-    def create_superuser(self, email: str, password: str, **extra_fields: Union[str, int, bool]) -> CustomUser:
+    def create_superuser(self, email: str, password: str, **extra_fields: Union[str, int, bool]) -> object:
         """
         Create and save a SuperUser with the given email and password.
         """

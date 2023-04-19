@@ -1,4 +1,4 @@
 [flake8]
 max-line-length = 130
-exclude = .git,__pycache__,venv,config/settings.py
+exclude = .git,__pycache__,venv,WebDevAPI/settings.py
 ignore = E203,W503
