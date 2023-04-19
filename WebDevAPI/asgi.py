@@ -1,5 +1,5 @@
 """
-ASGI config for DJANGO_API_BLOG project.
+ASGI WebDevAPI for DJANGO_API_BLOG project.
 
 It exposes the ASGI callable as a module-level variable named ``application``.
 

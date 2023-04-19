@@ -1,5 +1,5 @@
 """
-WSGI config for DJANGO_API_BLOG project.
+WSGI WebDevAPI for DJANGO_API_BLOG project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 

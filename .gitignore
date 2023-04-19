@@ -11,7 +11,7 @@ pycache/
 *.pyc
 
 Local Settings
-config/settings/local.py
+WebDevAPI/settings/local.py
 
 IDEs
 .vscode/
